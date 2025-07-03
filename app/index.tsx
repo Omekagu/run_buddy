@@ -13,7 +13,7 @@ import {
 const { width, height } = Dimensions.get('window')
 
 const HOUSE_IMAGE = {
-  uri: 'https://images.pexels.com/photos/2980955/pexels-photo-2980955.jpeg'
+  uri: 'https://i.postimg.cc/Mp7qF5qs/runbudy.jpg'
 }
 
 export default function index ({ navigation }: { navigation: any }) {
@@ -38,7 +38,7 @@ export default function index ({ navigation }: { navigation: any }) {
 
         {/* Bottom overlay */}
         <View style={styles.bottomOverlay}>
-          <Text style={styles.title}>HOUSE {'\n'}HUNTER</Text>
+          <Text style={styles.title}>RUN {'\n'}BUDDY</Text>
           <Text style={styles.subtitle}>
             Let us help you find your dream home.
           </Text>
