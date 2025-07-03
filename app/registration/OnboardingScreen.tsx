@@ -15,7 +15,7 @@ const { width, height } = Dimensions.get('window')
 
 const images = [
   {
-    uri: 'https://images.pexels.com/photos/3962286/pexels-photo-3962286.jpeg',
+    uri: 'https://images.pexels.com/photos/3962285/pexels-photo-3962285.jpeg',
     title: 'Grocery Shopping',
     description:
       'Find out all the details and a clear idea about the home by using this app.'
