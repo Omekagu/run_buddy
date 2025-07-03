@@ -117,6 +117,11 @@ const Home = () => {
                 label: 'Event Supplies Pickup',
                 image:
                   'https://images.pexels.com/photos/6647113/pexels-photo-6647113.jpeg'
+              },
+              {
+                label: 'Laundry Service',
+                image:
+                  'https://images.pexels.com/photos/8774520/pexels-photo-8774520.jpeg'
               }
             ].map((item, index) => (
               <TouchableOpacity key={index} style={styles.serviceCard}>
@@ -155,12 +160,15 @@ const styles = StyleSheet.create({
   },
   overlay: {
     ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.35)',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderRadius: 12
   },
   overlayText: {
-    color: '#000',
-    fontSize: 14,
+    color: '#fff',
+    fontSize: 17,
+    letterSpacing: 1.1,
     fontWeight: '900',
     textAlign: 'center'
   },
@@ -168,6 +176,7 @@ const styles = StyleSheet.create({
     marginBottom: 100,
     flexDirection: 'row',
     flexWrap: 'wrap',
+    // alignContent: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16
   },
