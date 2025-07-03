@@ -6,7 +6,6 @@ export default function RootLayout () {
     <GestureHandlerRootView style={{ flex: 1 }}>
       {/* Navigation stack */}
       <Stack>
-        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
         <Stack.Screen name='index' options={{ headerShown: false }} />
         <Stack.Screen
           name='registration/OnboardingScreen'
@@ -16,7 +15,6 @@ export default function RootLayout () {
           name='registration/RegistrationFlow'
           options={{ headerShown: false }}
         />
-
         <Stack.Screen
           name='registration/RegistrationOptionScreen'
           options={{ headerShown: false }}
@@ -37,6 +35,7 @@ export default function RootLayout () {
           name='registration/PinScreen'
           options={{ headerShown: false }}
         />
+        <Stack.Screen name='(tabs)' options={{ headerShown: false }} />
         <Stack.Screen name='(stacks)' options={{ headerShown: false }} />
       </Stack>
     </GestureHandlerRootView>

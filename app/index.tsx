@@ -13,7 +13,7 @@ import {
 const { width, height } = Dimensions.get('window')
 
 const HOUSE_IMAGE = {
-  uri: 'https://i.postimg.cc/Mp7qF5qs/runbudy.jpg'
+  uri: 'https://images.pexels.com/photos/13432047/pexels-photo-13432047.jpeg'
 }
 
 export default function index ({ navigation }: { navigation: any }) {
@@ -39,9 +39,9 @@ export default function index ({ navigation }: { navigation: any }) {
         {/* Bottom overlay */}
         <View style={styles.bottomOverlay}>
           <Text style={styles.title}>RUN {'\n'}BUDDY</Text>
-          <Text style={styles.subtitle}>
+          {/* <Text style={styles.subtitle}>
             Let us help you find your dream home.
-          </Text>
+          </Text> */}
         </View>
       </ImageBackground>
     </View>
@@ -102,6 +102,7 @@ const styles = StyleSheet.create({
   },
   bottomOverlay: {
     width: width,
+    // height: '100%',
     paddingHorizontal: 30,
     paddingBottom: 54,
     backgroundColor: 'rgba(0,0,0,0.05)'
@@ -114,11 +115,10 @@ const styles = StyleSheet.create({
     marginLeft: -4
   },
   title: {
-    color: '#fff',
-    fontSize: 32,
+    color: '#000',
+    fontSize: 52,
     fontWeight: '800',
     letterSpacing: 1.2,
-    lineHeight: 36,
     marginBottom: 13
   },
   subtitle: {
