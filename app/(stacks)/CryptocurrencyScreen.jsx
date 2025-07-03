@@ -86,7 +86,7 @@ export default function CryptocurrencyScreen () {
                   <TouchableOpacity
                     onPress={() => handleCopy(item.address, idx)}
                   >
-                    <Ionicons name='copy-outline' size={20} color='#fc8403' />
+                    <Ionicons name='copy-outline' size={20} color='#0cb7f5' />
                   </TouchableOpacity>
                 </View>
                 {copiedIdx === idx && (
@@ -107,10 +107,10 @@ export default function CryptocurrencyScreen () {
               verify and process your deposit.
             </Text>
             <TouchableOpacity style={styles.uploadBox}>
-              <Ionicons name='cloud-upload-outline' size={38} color='#fc8403' />
+              <Ionicons name='cloud-upload-outline' size={38} color='#0cb7f5' />
               <Text
                 style={{
-                  color: '#fc8403',
+                  color: '#0cb7f5',
                   marginTop: 10,
                   fontSize: 16,
                   fontWeight: '600'
@@ -132,7 +132,7 @@ export default function CryptocurrencyScreen () {
           <View style={styles.centered}>
             <ActivityIndicator
               size='large'
-              color='#fc8403'
+              color='#0cb7f5'
               style={{ marginBottom: 24 }}
             />
             <Text style={styles.title}>Processing...</Text>
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
   },
   proofBtn: {
     marginTop: 30,
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     padding: 14,
     borderRadius: 4,
     alignItems: 'center'
@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
   uploadBox: {
     backgroundColor: '#f2f6fa',
     borderWidth: 1.5,
-    borderColor: '#fc840355',
+    borderColor: '#0cb7f555',
     borderStyle: 'dashed',
     borderRadius: 11,
     width: 170,

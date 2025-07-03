@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     color: '#000'
   },
   resendText: {
-    color: '#fc8403',
+    color: '#0cb7f5',
     fontSize: 14
   }
 })

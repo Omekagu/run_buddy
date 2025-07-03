@@ -44,7 +44,7 @@ export default function StepNin ({
       />
       <View style={styles.card}>
         <View style={styles.iconCircle}>
-          <Ionicons name='card-outline' size={32} color='#fc8403' />
+          <Ionicons name='card-outline' size={32} color='#0cb7f5' />
         </View>
         <Text style={styles.title}>NIN Verification</Text>
         <Text style={styles.subtitle}>
@@ -72,7 +72,7 @@ export default function StepNin ({
               <Ionicons
                 name='arrow-back'
                 size={20}
-                color='#fc8403'
+                color='#0cb7f5'
                 style={{ marginRight: 6 }}
               />
               <Text style={styles.buttonTextAlt}>Back</Text>
@@ -80,7 +80,7 @@ export default function StepNin ({
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={handleNext}>
             <LinearGradient
-              colors={['#fc8403', '#3fd0b3']}
+              colors={['#0cb7f5', '#3fd0b3']}
               style={styles.btnGradient}
             >
               <Text style={styles.buttonText}>Next</Text>
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#fc8403',
+    color: '#0cb7f5',
     marginBottom: 6,
     letterSpacing: 0.5
   },
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 12,
     borderWidth: 1.4,
-    borderColor: '#fc8403',
+    borderColor: '#0cb7f5',
     backgroundColor: 'rgba(229,241,255,0.6)',
     fontSize: 18,
     color: '#222',
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
   buttonTextAlt: {
-    color: '#fc8403',
+    color: '#0cb7f5',
     fontWeight: 'bold',
     fontSize: 18
   }

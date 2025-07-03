@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 8
   },
   activeDot: {
-    backgroundColor: '#fc8403'
+    backgroundColor: '#0cb7f5'
   },
   padContainer: {
     flexDirection: 'row',
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     color: '#000'
   },
   forgotText: {
-    color: '#fc8403',
+    color: '#0cb7f5',
     fontSize: 14,
     marginBottom: 10
   }

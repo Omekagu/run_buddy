@@ -256,7 +256,7 @@ export default function NotificationScreen () {
                       : 'info'
                   }
                   size={28}
-                  color={item.unread ? '#fc8403' : '#bbb'}
+                  color={item.unread ? '#0cb7f5' : '#bbb'}
                   style={{ marginRight: 4 }}
                 />
               </View>
@@ -358,7 +358,7 @@ const styles = StyleSheet.create({
   },
   tabBtnActive: {
     backgroundColor: '#fff',
-    shadowColor: '#fc8403',
+    shadowColor: '#0cb7f5',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.12,
     shadowRadius: 6,
@@ -370,7 +370,7 @@ const styles = StyleSheet.create({
     fontSize: 15
   },
   tabTextActive: {
-    color: '#fc8403',
+    color: '#0cb7f5',
     fontWeight: 'bold'
   },
   // Message item

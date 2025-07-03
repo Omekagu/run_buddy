@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#e0e0e0',
     borderRadius: 8
   },
-  activeTab: { backgroundColor: '#fc8403' },
+  activeTab: { backgroundColor: '#0cb7f5' },
   tabText: { textAlign: 'center', color: '#333' },
   activeTabText: { color: '#fff', fontWeight: 'bold' },
   card: {
@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
   statusCanceled: { backgroundColor: '#F8D7DA', color: '#721C24' },
   actions: { flexDirection: 'row', marginTop: 8, gap: 10 },
   rebookBtn: {
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 3

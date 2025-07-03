@@ -148,7 +148,7 @@ const Status = () => {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#fc8403' },
+  container: { flex: 1, backgroundColor: '#0cb7f5' },
   content: {
     padding: 20,
     paddingTop: 40
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5
   },
   activeButton: {
-    backgroundColor: '#fc8403'
+    backgroundColor: '#0cb7f5'
   },
   switchText: {
     textAlign: 'center',
@@ -194,7 +194,7 @@ const styles = StyleSheet.create({
     height: 50
   },
   trackButton: {
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',

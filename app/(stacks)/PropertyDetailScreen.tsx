@@ -166,7 +166,7 @@ const PropertyDetailScreen = () => {
             key={idx}
             style={[
               styles.dot,
-              currentIndex === idx && { backgroundColor: '#fc8403', width: 15 }
+              currentIndex === idx && { backgroundColor: '#0cb7f5', width: 15 }
             ]}
           />
         ))}
@@ -420,7 +420,7 @@ const styles = StyleSheet.create({
     gap: 10
   },
   facilityIconBox: {
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     padding: 10,
     borderRadius: 10,
     marginRight: 5
@@ -447,7 +447,7 @@ const styles = StyleSheet.create({
   ownerBtn: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     paddingVertical: 12,
     paddingHorizontal: 18,
     borderRadius: 12,
@@ -486,7 +486,7 @@ const styles = StyleSheet.create({
     color: '#232323'
   },
   rentBtn: {
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     paddingHorizontal: 30,
     paddingVertical: 13,
     borderRadius: 14

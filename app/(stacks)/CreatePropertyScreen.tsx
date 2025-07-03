@@ -172,7 +172,7 @@ const CreatePropertyScreen: React.FC = () => {
                 onPress={handleAddFacility}
                 style={styles.addBtn}
               >
-                <Ionicons name='add-circle-outline' size={24} color='#fc8403' />
+                <Ionicons name='add-circle-outline' size={24} color='#0cb7f5' />
               </TouchableOpacity>
             </View>
 
@@ -358,7 +358,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   nextBtn: {
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     paddingVertical: 14,
     borderRadius: 8,
     alignItems: 'center',

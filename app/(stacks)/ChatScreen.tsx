@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#fff' },
   header: {
     padding: 16,
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   sendButton: {
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: 20

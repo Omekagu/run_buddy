@@ -259,7 +259,7 @@ export default function Profile () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fc8403'
+    backgroundColor: '#0cb7f5'
   },
 
   scrollContent: {

@@ -118,7 +118,7 @@ const RegistrationScreen = ({
                 <Ionicons
                   name='person'
                   size={22}
-                  color={accountType === 'Tenant' ? '#fff' : '#fc8403'}
+                  color={accountType === 'Tenant' ? '#fff' : '#0cb7f5'}
                   style={{ marginRight: 8 }}
                 />
                 <Text
@@ -182,7 +182,7 @@ const RegistrationScreen = ({
                 >
                   <Text style={styles.countryFlag}>{country.flag}</Text>
                   <Text style={styles.countryCode}>{country.code}</Text>
-                  <Ionicons name='chevron-down' color='#fc8403' size={18} />
+                  <Ionicons name='chevron-down' color='#0cb7f5' size={18} />
                 </TouchableOpacity>
                 <TextInput
                   style={[styles.input, { flex: 1, marginLeft: 10 }]}
@@ -223,7 +223,7 @@ const RegistrationScreen = ({
               <Checkbox
                 value={isChecked}
                 onValueChange={setChecked}
-                color={isChecked ? '#fc8403' : undefined}
+                color={isChecked ? '#0cb7f5' : undefined}
               />
               <Text style={styles.checkboxText}>
                 I agree to the{' '}
@@ -364,7 +364,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     borderWidth: 1.5,
-    borderColor: '#fc8403',
+    borderColor: '#0cb7f5',
     borderRadius: 12,
     paddingVertical: 10,
     paddingHorizontal: 22,
@@ -372,8 +372,8 @@ const styles = StyleSheet.create({
     marginRight: 0
   },
   accountTypeSelected: {
-    backgroundColor: '#fc8403',
-    borderColor: '#fc8403'
+    backgroundColor: '#0cb7f5',
+    borderColor: '#0cb7f5'
   },
   accountTypeText: {
     color: '#000',
@@ -439,11 +439,11 @@ const styles = StyleSheet.create({
     flexShrink: 1
   },
   link: {
-    color: '#fc8403',
+    color: '#0cb7f5',
     fontWeight: '600'
   },
   signupBtn: {
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     paddingVertical: 14,
     borderRadius: 10,
     alignItems: 'center',
@@ -502,6 +502,6 @@ const styles = StyleSheet.create({
 
     backgroundColor: '#fff',
     borderWidth: 1,
-    borderColor: '#fc8403'
+    borderColor: '#0cb7f5'
   }
 })

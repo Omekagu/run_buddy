@@ -10,11 +10,13 @@ export default function _layout () {
         headerShown: false,
         tabBarStyle: {
           position: 'absolute',
-          backgroundColor: '#fc8403',
+          backgroundColor: '#0cb7f5',
           elevation: 0,
           borderTopWidth: 0,
-          paddingTop: 10,
-          height: 100
+          paddingVertical: 10,
+          height: 50,
+          margin: 20,
+          borderRadius: 15
         },
         tabBarIcon: ({ focused }) => {
           let iconName = ''

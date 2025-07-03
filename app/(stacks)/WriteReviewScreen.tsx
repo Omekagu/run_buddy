@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   },
   submitBtn: {
     marginTop: 32,
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     marginHorizontal: 14,
     borderRadius: 8,
     alignItems: 'center',

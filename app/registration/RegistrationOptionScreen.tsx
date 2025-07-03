@@ -187,11 +187,11 @@ const styles = StyleSheet.create({
     marginLeft: 'auto'
   },
   forgotText: {
-    color: '#fc8403',
+    color: '#0cb7f5',
     fontSize: 13
   },
   signInButton: {
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     paddingVertical: 16,
     borderRadius: 10,
     marginBottom: 30
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
     color: '#fff'
   },
   signUpText: {
-    color: '#fc8403',
+    color: '#0cb7f5',
     fontWeight: '600'
   }
 })

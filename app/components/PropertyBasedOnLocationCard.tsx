@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   },
   statusBtn: {
     marginTop: 2,
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     borderRadius: 10,
     alignSelf: 'flex-start',
     paddingHorizontal: 17,

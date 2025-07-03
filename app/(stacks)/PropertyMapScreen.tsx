@@ -362,7 +362,7 @@ const styles = StyleSheet.create({
   priceTextActive: {
     marginTop: 2,
     color: '#fff',
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     fontWeight: 'bold',
     fontSize: 13,
     paddingHorizontal: 7,
@@ -435,7 +435,7 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   detailBtn: {
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     paddingHorizontal: 13,
     paddingVertical: 8,
     borderRadius: 5,

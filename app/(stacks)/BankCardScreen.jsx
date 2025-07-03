@@ -54,7 +54,7 @@ export default function BankCardScreen () {
           <Ionicons
             name='cloud-upload-outline'
             size={60}
-            color='#fc8403'
+            color='#0cb7f5'
             style={{ marginBottom: 18 }}
           />
           <Text style={styles.title}>Processing Payment...</Text>
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
   },
   payBtn: {
     marginTop: 34,
-    backgroundColor: '#fc8403',
+    backgroundColor: '#0cb7f5',
     padding: 18,
     borderRadius: 8,
     alignItems: 'center',
