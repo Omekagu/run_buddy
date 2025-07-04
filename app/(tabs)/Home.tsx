@@ -4,7 +4,6 @@ import React, { useState } from 'react'
 import {
   Image,
   Platform,
-  // ScrollView,
   StatusBar,
   StyleSheet,
   Text,
@@ -69,7 +68,6 @@ const Home = () => {
           </TouchableOpacity>
         </View>
 
-        {/* NEWLY ADDED */}
         {/* Services Section */}
         <Text
           style={{

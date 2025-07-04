@@ -9,6 +9,34 @@ export default function Layout () {
         options={{ title: 'Property Search', headerShown: false }}
       />
       <Stack.Screen
+        name='EvenSupplies'
+        options={{ title: 'Event Supplies', headerShown: false }}
+      />
+      <Stack.Screen
+        name='AppointmentScreen'
+        options={{ title: 'AppointmentScreen', headerShown: false }}
+      />
+      <Stack.Screen
+        name='SchoolRunScreen'
+        options={{ title: 'School Run', headerShown: false }}
+      />
+      <Stack.Screen
+        name='WelfareScreen'
+        options={{ title: 'Welfare Check-Ins', headerShown: false }}
+      />
+      <Stack.Screen
+        name='PackagePickupScreen'
+        options={{ title: 'PickUp & Drop Off', headerShown: false }}
+      />
+      <Stack.Screen
+        name='LaundryScreen'
+        options={{ title: 'Laundry', headerShown: false }}
+      />
+      <Stack.Screen
+        name='GroceryScreen'
+        options={{ title: 'GroceryScreen', headerShown: false }}
+      />
+      <Stack.Screen
         name='PropertyMapScreen'
         options={{ title: 'Property Map', headerShown: false }}
       />
