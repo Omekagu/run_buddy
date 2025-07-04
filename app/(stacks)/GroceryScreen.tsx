@@ -1,198 +1,316 @@
-import { Ionicons } from '@expo/vector-icons'
-import { useRouter } from 'expo-router'
 import React, { useState } from 'react'
 import {
   FlatList,
-  Image,
-  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
   StyleSheet,
   Text,
+  TextInput,
   TouchableOpacity,
   View
 } from 'react-native'
 
-const categories = ['All', 'Fruits', 'Vegetables', 'Snacks', 'Drinks']
+export interface CustomGroceryRequest {
+  item: string
+  description: string
+  market: string
+  specialty?: string
+  labels?: string[]
+}
 
-const groceryItems = [
-  {
-    id: '1',
-    name: 'Fresh Apples',
-    price: '₦1,200',
-    image: 'https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg'
-  },
-  {
-    id: '2',
-    name: 'Bananas',
-    price: '₦800',
-    image: 'https://images.pexels.com/photos/208450/pexels-photo-208450.jpeg'
-  },
-  {
-    id: '3',
-    name: 'Tomatoes',
-    price: '₦1,000',
-    image: 'https://images.pexels.com/photos/839727/pexels-photo-839727.jpeg'
-  },
-  {
-    id: '4',
-    name: 'Carrots',
-    price: '₦600',
-    image: 'https://images.pexels.com/photos/65174/pexels-photo-65174.jpeg'
-  }
+const LABEL_OPTIONS = [
+  'Fresh Produce',
+  'Dairy',
+  'Bakery',
+  'Meat',
+  'Seafood',
+  'Snacks',
+  'Beverages',
+  'Frozen',
+  'Organic',
+  'Imported',
+  'Gluten-Free'
 ]
 
 export default function GroceryScreen () {
-  const router = useRouter()
-  const [activeCategory, setActiveCategory] = useState('All')
+  const [current, setCurrent] = useState<CustomGroceryRequest>({
+    item: '',
+    description: '',
+    market: '',
+    specialty: '',
+    labels: []
+  })
+  const [requests, setRequests] = useState<CustomGroceryRequest[]>([])
+
+  function handleChange<K extends keyof CustomGroceryRequest> (
+    field: K,
+    value: string
+  ) {
+    setCurrent(prev => ({ ...prev, [field]: value }))
+  }
+
+  function handleLabelToggle (label: string) {
+    setCurrent(prev => ({
+      ...prev,
+      labels: prev.labels?.includes(label)
+        ? prev.labels?.filter(l => l !== label)
+        : [...(prev.labels ?? []), label]
+    }))
+  }
+
+  function handleSubmit () {
+    if (!current.item || !current.market) {
+      alert('Please enter item name and market location.')
+      return
+    }
+    setRequests(prev => [...prev, current])
+    setCurrent({
+      item: '',
+      description: '',
+      market: '',
+      specialty: '',
+      labels: []
+    })
+  }
+
+  const renderLabel = (label: string) => (
+    <TouchableOpacity
+      key={label}
+      style={[
+        styles.label,
+        current.labels?.includes(label) && styles.labelSelected
+      ]}
+      onPress={() => handleLabelToggle(label)}
+    >
+      <Text
+        style={[
+          styles.labelText,
+          current.labels?.includes(label) && styles.labelTextSelected
+        ]}
+      >
+        {label}
+      </Text>
+    </TouchableOpacity>
+  )
+
+  const renderRequest = ({ item }: { item: CustomGroceryRequest }) => (
+    <View style={styles.requestItem}>
+      <Text style={styles.requestTitle}>{item.item}</Text>
+      <Text style={styles.requestDetails}>
+        {item.market}
+        {item.specialty ? ` • Specialty: ${item.specialty}` : ''}
+      </Text>
+      {item.description ? (
+        <Text style={styles.requestDescription}>{item.description}</Text>
+      ) : null}
+      {item.labels && item.labels.length > 0 ? (
+        <View style={styles.requestLabels}>
+          {item.labels.map(label => (
+            <Text key={label} style={styles.requestLabel}>
+              {label}
+            </Text>
+          ))}
+        </View>
+      ) : null}
+    </View>
+  )
 
   return (
-    <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name='arrow-back' size={24} color='#232323' />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Grocery</Text>
-        <View style={{ width: 24 }} />
-      </View>
-
-      {/* Banner */}
-      <Image
-        source={{
-          uri: 'https://images.pexels.com/photos/4393661/pexels-photo-4393661.jpeg'
-        }}
-        style={styles.banner}
-      />
-
-      {/* Categories */}
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.categoryScroll}
-      >
-        {categories.map(cat => (
-          <TouchableOpacity
-            key={cat}
-            style={[
-              styles.categoryItem,
-              activeCategory === cat && styles.activeCategory
-            ]}
-            onPress={() => setActiveCategory(cat)}
-          >
-            <Text
-              style={[
-                styles.categoryText,
-                activeCategory === cat && styles.activeCategoryText
-              ]}
-            >
-              {cat}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
-
-      {/* Grocery Items */}
+    <KeyboardAvoidingView
+      style={{ flex: 1, backgroundColor: '#f8f8f8' }}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+    >
       <FlatList
-        data={groceryItems}
-        keyExtractor={item => item.id}
-        numColumns={2}
-        columnWrapperStyle={{
-          justifyContent: 'space-between',
-          paddingHorizontal: 16
-        }}
-        contentContainerStyle={{ paddingBottom: 100 }}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Image source={{ uri: item.image }} style={styles.cardImage} />
-            <Text style={styles.cardTitle}>{item.name}</Text>
-            <Text style={styles.cardPrice}>{item.price}</Text>
-            <TouchableOpacity style={styles.addBtn}>
-              <Text style={styles.addBtnText}>Add</Text>
+        data={requests}
+        keyExtractor={(_, idx) => idx.toString()}
+        renderItem={renderRequest}
+        contentContainerStyle={styles.listContainer}
+        ListHeaderComponent={
+          <View style={styles.customInputBox}>
+            <Text style={styles.sectionTitle}> Grocery Request</Text>
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'#eee'}
+              placeholder='What do you want us to buy?'
+              value={current.item}
+              onChangeText={text => handleChange('item', text)}
+            />
+
+            <Text style={styles.labelHeader}>Category Labels</Text>
+            <TextInput
+              style={styles.textarea}
+              placeholderTextColor={'#eee'}
+              placeholder='Special instructions or description'
+              value={current.description}
+              onChangeText={text => handleChange('description', text)}
+              multiline
+              numberOfLines={3}
+            />
+
+            <Text style={styles.labelHeader}>Category Labels</Text>
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'#eee'}
+              placeholder='Specialty (e.g., Brand, Size, Type)'
+              value={current.specialty}
+              onChangeText={text => handleChange('specialty', text)}
+            />
+
+            <Text style={styles.labelHeader}>Category Labels</Text>
+            <TextInput
+              style={styles.input}
+              placeholderTextColor={'#eee'}
+              placeholder='Where should we shop? e.g., Ogbete Main Market'
+              value={current.market}
+              onChangeText={text => handleChange('market', text)}
+            />
+            <Text style={styles.labelHeader}>Category Labels</Text>
+            <View style={styles.labelsContainer}>
+              {LABEL_OPTIONS.map(renderLabel)}
+            </View>
+            <TouchableOpacity
+              style={styles.submitBtn}
+              onPress={handleSubmit}
+              activeOpacity={0.8}
+            >
+              <Text style={styles.submitBtnText}>Add Request</Text>
             </TouchableOpacity>
           </View>
-        )}
+        }
       />
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  listContainer: {
+    paddingTop: 30,
+    paddingHorizontal: 0,
+    paddingBottom: 16
+  },
+  customInputBox: {
     flex: 1,
-    backgroundColor: '#f7f6f2'
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    backgroundColor: '#fff',
     padding: 16,
-    justifyContent: 'space-between'
+    borderRadius: 12,
+    margin: 16,
+    marginBottom: 10,
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.05,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 5
   },
-  headerTitle: {
+  sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 12,
     color: '#232323'
   },
-  banner: {
-    width: '100%',
-    height: 160,
-    borderRadius: 12,
+  input: {
+    borderColor: '#ececec',
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 10,
+    fontSize: 15,
+    backgroundColor: '#fafafa'
+  },
+  textarea: {
+    borderColor: '#ececec',
+    borderWidth: 1,
+    borderRadius: 8,
+    padding: 10,
+    height: 80,
+    textAlignVertical: 'top',
+    marginBottom: 10,
+    fontSize: 15,
+    backgroundColor: '#fafafa'
+  },
+  labelHeader: {
+    fontSize: 15,
+    fontWeight: '600',
+    marginTop: 6,
+    marginBottom: 8,
+    color: '#232323'
+  },
+  labelsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     marginBottom: 10
   },
-  categoryScroll: {
-    paddingHorizontal: 16,
-    marginBottom: 12
+  label: {
+    borderColor: '#bbb',
+    borderWidth: 1,
+    borderRadius: 16,
+    paddingVertical: 5,
+    paddingHorizontal: 12,
+    marginRight: 6,
+    marginBottom: 6,
+    backgroundColor: '#fff'
   },
-  categoryItem: {
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    backgroundColor: '#e0dad3',
-    borderRadius: 20,
-    marginRight: 10
+  labelSelected: {
+    backgroundColor: '#232323',
+    borderColor: '#232323'
   },
-  activeCategory: {
-    backgroundColor: '#232323'
-  },
-  categoryText: {
+  labelText: {
     color: '#232323',
     fontSize: 13
   },
-  activeCategoryText: {
+  labelTextSelected: {
+    color: '#fff'
+  },
+  submitBtn: {
+    backgroundColor: '#232323',
+    paddingVertical: 12,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 6
+  },
+  submitBtnText: {
     color: '#fff',
-    fontWeight: '600'
+    fontWeight: '700',
+    fontSize: 15
   },
-  card: {
+  requestItem: {
     backgroundColor: '#fff',
-    borderRadius: 14,
-    marginBottom: 16,
-    width: '47%',
-    overflow: 'hidden'
+    borderRadius: 10,
+    padding: 14,
+    marginHorizontal: 16,
+    marginBottom: 10,
+    elevation: 1,
+    shadowColor: '#000',
+    shadowOpacity: 0.02,
+    shadowOffset: { width: 0, height: 1 }
   },
-  cardImage: {
-    width: '100%',
-    height: 110
+  requestTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#232323'
   },
-  cardTitle: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#232323',
-    marginTop: 6,
-    paddingHorizontal: 10
-  },
-  cardPrice: {
+  requestDetails: {
     fontSize: 13,
     color: '#666',
-    paddingHorizontal: 10,
-    marginTop: 2
+    marginTop: 2,
+    marginBottom: 2
   },
-  addBtn: {
-    backgroundColor: '#232323',
-    margin: 10,
-    borderRadius: 8,
-    paddingVertical: 6,
-    alignItems: 'center'
-  },
-  addBtnText: {
-    color: '#fff',
+  requestDescription: {
     fontSize: 13,
-    fontWeight: '600'
+    color: '#505050',
+    marginBottom: 5
+  },
+  requestLabels: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  requestLabel: {
+    backgroundColor: '#ececec',
+    color: '#232323',
+    borderRadius: 12,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    fontSize: 12,
+    marginRight: 6,
+    marginBottom: 3
   }
 })
