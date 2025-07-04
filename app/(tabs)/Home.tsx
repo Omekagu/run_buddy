@@ -87,42 +87,51 @@ const Home = () => {
               {
                 label: 'Grocery Shopping',
                 image:
-                  'https://images.pexels.com/photos/3962285/pexels-photo-3962285.jpeg'
+                  'https://images.pexels.com/photos/3962285/pexels-photo-3962285.jpeg',
+                route: '/(stacks)/GroceryScreen'
               },
               {
-                label: `Package Pickup
-              &
-              Drop off`,
+                label: 'Package Pickup & Drop off',
                 image:
-                  'https://images.pexels.com/photos/7844015/pexels-photo-7844015.jpeg'
+                  'https://images.pexels.com/photos/7844015/pexels-photo-7844015.jpeg',
+                route: '/(stacks)/PackagePickupScreen'
               },
               {
                 label: 'Welfare Check-Ins',
                 image:
-                  'https://images.pexels.com/photos/7659565/pexels-photo-7659565.jpeg'
+                  'https://images.pexels.com/photos/7659565/pexels-photo-7659565.jpeg',
+                route: '/(stacks)/WelfareScreen'
               },
               {
                 label: 'School Run',
                 image:
-                  'https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg'
+                  'https://images.pexels.com/photos/1454360/pexels-photo-1454360.jpeg',
+                route: '/(stacks)/SchoolRunScreen'
               },
               {
                 label: 'Appointments (Elderly)',
                 image:
-                  'https://images.pexels.com/photos/7551686/pexels-photo-7551686.jpeg'
+                  'https://images.pexels.com/photos/7551686/pexels-photo-7551686.jpeg',
+                route: '/(stacks)/AppointmentScreen'
               },
               {
                 label: 'Event Supplies Pickup',
                 image:
-                  'https://images.pexels.com/photos/6647113/pexels-photo-6647113.jpeg'
+                  'https://images.pexels.com/photos/6647113/pexels-photo-6647113.jpeg',
+                route: '/(stacks)/EventPickupScreen'
               },
               {
                 label: 'Laundry Service',
                 image:
-                  'https://images.pexels.com/photos/8774520/pexels-photo-8774520.jpeg'
+                  'https://images.pexels.com/photos/8774520/pexels-photo-8774520.jpeg',
+                route: '/(stacks)/LaundryScreen'
               }
             ].map((item, index) => (
-              <TouchableOpacity key={index} style={styles.serviceCard}>
+              <TouchableOpacity
+                key={index}
+                style={styles.serviceCard}
+                onPress={() => router.push(item.route)}
+              >
                 <View key={index} style={styles.touch}>
                   <Image
                     source={{ uri: item.image }}

@@ -9,6 +9,7 @@ export default function _layout () {
         tabBarShowLabel: false,
         headerShown: false,
         tabBarStyle: {
+          justifyContent: 'space-between',
           position: 'absolute',
           backgroundColor: '#0cb7f5',
           elevation: 0,
@@ -25,11 +26,8 @@ export default function _layout () {
             case 'Home':
               iconName = focused ? 'home' : 'home-outline'
               break
-            case 'Errand':
-              iconName = focused ? 'globe' : 'globe-outline'
-              break
             case 'Status':
-              iconName = focused ? 'planet' : 'airplane-outline'
+              iconName = focused ? 'timer' : 'timer-outline'
               break
             case 'Profile':
               iconName = focused ? 'person' : 'person-outline'
@@ -53,7 +51,6 @@ export default function _layout () {
       })}
     >
       <Tabs.Screen name='Home' />
-      <Tabs.Screen name='Errand' />
       <Tabs.Screen name='HistoryScreen' />
       <Tabs.Screen name='Status' />
       <Tabs.Screen name='Profile' />

@@ -9,8 +9,8 @@ export default function Layout () {
         options={{ title: 'Property Search', headerShown: false }}
       />
       <Stack.Screen
-        name='EvenSupplies'
-        options={{ title: 'Event Supplies', headerShown: false }}
+        name='EventPickupScreen'
+        options={{ title: 'Event Pickup', headerShown: false }}
       />
       <Stack.Screen
         name='AppointmentScreen'
